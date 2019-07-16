@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage!!</title>
+        <script type="text/javascript">
+        </script>
+        <style>
+            #RedBox{
+                background-color: red;
+                width: 30mm;
+                height: 20mm;
+                position: relative;
+            }
+        </style>
+        <noscript>JS Not Supported</noscript>
+    </head>
+
+    <body>
+        <h1>Hello World!!</h1>
+        <div id="RedBox">
+            <script type="text/javascript">
+                var box = document.getElementById("RedBox");
+                var move = 0;
+                
+                function Motion(){
+                    move += 1;
+                    box.style.left = move + 20 + 'px';
+                    setTimeout(Motion, 10);
+                }
+
+                Motion();
+            </script>
+
+        </div>
+    </body>
+</html>
