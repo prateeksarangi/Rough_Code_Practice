@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 			s += log10(i);
 		}
 
-		cout<<floor(s) + 1;
+		cout<<floor(s) + 1<<endl;
 	}
 	return 0;
 }
