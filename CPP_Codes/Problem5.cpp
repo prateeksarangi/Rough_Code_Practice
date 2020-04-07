@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 	for(i=0; i<n; i++)
 		cin>>A[i];
 
-	int flag = 0;
+	int flag = 0, ans;
 	for(i=0; i<n; i++){
 		if(A[i] > A[i+1]){
 			ans = A[i];
@@ -23,6 +23,6 @@ int main(int argc, char const *argv[])
 	if(flag != 0)
 		cout<<ans<<endl;
 	else
-		cout<<A[n-1];
+		cout<<A[n-1]<<endl;
 	return 0;
 }
