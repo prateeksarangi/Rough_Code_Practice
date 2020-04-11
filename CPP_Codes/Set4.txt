@@ -1,0 +1,10 @@
+1. Find the maximum sum contiguous subarray.
+	Input:- 1 2 3 4 -10
+	Output:- 10
+
+2. Smallest difference triplet from three arrays.
+	Input:- A1 = {5, 2, 8}
+			A2 = {10, 7, 12}
+			A3 = {9, 14, 6}
+
+	Output:- 7, 6, 8
