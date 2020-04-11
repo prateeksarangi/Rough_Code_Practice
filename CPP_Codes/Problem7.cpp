@@ -7,9 +7,13 @@ int maximum(int a, int b, int c){
 
 int minimum(int a, int b, int c){ 
 	return min(min(a, b), c); 
-} 
+}  
 
-void smallestDifferenceTriplet(int arr1[], int arr2[], int arr3[], int n){ 
+int main(){ 
+	int arr1[] = {5, 2, 8}; 
+	int arr2[] = {10, 7, 12}; 
+	int arr3[] = {9, 14, 6}; 
+	int n = sizeof(arr1) / sizeof(arr1[0]); 
 	sort(arr1, arr1+n); 
 	sort(arr2, arr2+n); 
 	sort(arr3, arr3+n); 
@@ -38,13 +42,5 @@ void smallestDifferenceTriplet(int arr1[], int arr2[], int arr3[], int n){
 	} 
 
 	cout << res_max << ", " << res_mid << ", " << res_min; 
-} 
-
-int main(){ 
-	int arr1[] = {5, 2, 8}; 
-	int arr2[] = {10, 7, 12}; 
-	int arr3[] = {9, 14, 6}; 
-	int n = sizeof(arr1) / sizeof(arr1[0]); 
-	smallestDifferenceTriplet(arr1, arr2, arr3, n); 
 	return 0; 
 } 
