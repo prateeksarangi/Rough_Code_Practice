@@ -5,35 +5,42 @@ import Person from './Person/Person.js'
 class App extends Component {
   state = {
     person: [
-      {name:'Prateek', age:21},
-      {name:'Qwerty', age:56}
+      {id: 1, name:'Prateek', age:21},
+      {id: 2, name:'Qwerty', age:56}
     ],
     showPersons: false
   }
 
-  switchNameHandler = (newName) => {
-    // Don't use this type of syntax: this.state.person[0].name = 'Max';
-    this.setState({
-      person: [
-        {name:newName, age:21},
-        {name:'Qwerty', age:64}
-      ]
-    })
-  }
-
-  // changeNameHandler = (event) => {
+  // switchNameHandler = () => {
+  //   // Don't use this type of syntax: this.state.person[0].name = 'Max';
   //   this.setState({
   //     person: [
-  //       {name:'Prateek', age:21},
-  //       {name:event.target.value, age:64}
+  //       {id: 1, name:'Prateek', age:21},
+  //       {id: 2, name:'Qwerty', age:64}
   //     ]
   //   })
   // }
 
+  changeNameHandler = (event, id) => {
+    const personIndex = this.state.person.findIndex(p => {
+      return p.id === id;
+    });
+
+    const person = {
+      ...this.state.person[personIndex]
+    };
+
+    person.name = event.target.value;
+    const newPerson = [...this.state.person];
+    newPerson[personIndex] = person;
+    console.log(personIndex);
+    this.setState({ person: newPerson });
+  }
+
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState({ showPersons: !doesShow });
-    console.log(this.state.showPersons);
+    // console.log(this.state.showPersons);
   }
 
   deleteHandler = ( personIndex ) => {
@@ -56,6 +63,8 @@ class App extends Component {
                 click={() => this.deleteHandler(idx)}
                 name={person.name}
                 age={person.age}
+                key={person.id}
+                changed={(event) => this.changeNameHandler(event, person.id)}
               />
             })
           }
