@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person.js';
-import Radium, { StyleRoot } from 'radium';
+// import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
   state = {
@@ -54,19 +54,20 @@ class App extends Component {
   render() {
 
     let persons = null;
+    let btnClass = [classes.Button];
 
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    }
+    // const style = {
+    //   backgroundColor: 'green',
+    //   color: 'white',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer',
+    //   ':hover': {
+    //     backgroundColor: 'lightgreen',
+    //     color: 'black'
+    //   }
+    // }
 
     if ( this.state.showPersons ) {
       persons = (
@@ -84,38 +85,39 @@ class App extends Component {
           }
         </div>
       );
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      };
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor: 'salmon',
+      //   color: 'black'
+      // };
+      btnClass.push(classes.Red);
     }
 
-    let classes = [ ];
+    let assignClass = [ ];
     if (this.state.person.length <= 1) {
-      classes.push('red');
+      assignClass.push(classes.red);
     }
     if (this.state.person.length <= 0) {
-      classes.push('bold');
+      assignClass.push(classes.bold);
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
+      // <StyleRoot>
+        <div className={classes.App}>
           <h1>Hello!!, You are on a React App</h1>
-          <p className={classes.join(' ')}>This is a paragraph for testing.</p>
+          <p className={assignClass.join(' ')}>This is a paragraph for testing.</p>
         {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilium')}>Switch</button> */}
-        <button
-          style = {style}
+          <button className={btnClass.join(' ')}
+          // style={style}
           onClick={this.togglePersonsHandler}>
-        Toggle Person
-        </button>
+            Toggle Person
+          </button>
       { persons }
         </div>
-      </StyleRoot>
+      // </StyleRoot>
     );
   }
 }
 
-export default Radium(App);
-// export default App;
+// export default Radium(App);
+export default App;
