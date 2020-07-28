@@ -54,7 +54,7 @@ class App extends Component {
   render() {
 
     let persons = null;
-    let btnClass = [classes.Button];
+    let btnClass = '';
 
     // const style = {
     //   backgroundColor: 'green',
@@ -90,7 +90,7 @@ class App extends Component {
       //   backgroundColor: 'salmon',
       //   color: 'black'
       // };
-      btnClass.push(classes.Red);
+      btnClass = classes.Red;
     }
 
     let assignClass = [ ];
@@ -107,7 +107,7 @@ class App extends Component {
           <h1>Hello!!, You are on a React App</h1>
           <p className={assignClass.join(' ')}>This is a paragraph for testing.</p>
         {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilium')}>Switch</button> */}
-          <button className={btnClass.join(' ')}
+          <button className={btnClass}
           // style={style}
           onClick={this.togglePersonsHandler}>
             Toggle Person
