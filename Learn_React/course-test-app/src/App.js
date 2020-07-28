@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person.js';
-// import Radium, { StyleRoot } from 'radium';
-import styled from 'styled-components';
-
-const StyledButton = styled.button`
-                        background-color: green;
-                        color: white;
-                        font: inherit;
-                        border: 1px solid blue;
-                        padding: 8px;
-                        cursor: pointer;
-                        &:hover {
-                          background-color: lightgreen;
-                          color: black;
-                        }
-                      `;
+import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
   state = {
@@ -69,18 +55,18 @@ class App extends Component {
 
     let persons = null;
 
-    // const style = {
-    //   backgroundColor: 'green',
-    //   color: 'white',
-    //   font: 'inherit',
-    //   border: '1px solid blue',
-    //   padding: '8px',
-    //   cursor: 'pointer',
-    //   ':hover': {
-    //     backgroundColor: 'lightgreen',
-    //     color: 'black'
-    //   }
-    // }
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
+    }
 
     if ( this.state.showPersons ) {
       persons = (
@@ -114,25 +100,22 @@ class App extends Component {
     }
 
     return (
-      // <StyleRoot>
+      <StyleRoot>
         <div className="App">
           <h1>Hello!!, You are on a React App</h1>
           <p className={classes.join(' ')}>This is a paragraph for testing.</p>
-        // {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilium')}>Switch</button> */}
-        // // <button
-        // //   style = {style}
-        // //   onClick={this.togglePersonsHandler}>
-        // // Toggle Person
-        // // </button>
-        <StyledButton onClick={this.togglePersonsHandler}>
-          Toggle Person
-        </StyledButton >
+        {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilium')}>Switch</button> */}
+        <button
+          style = {style}
+          onClick={this.togglePersonsHandler}>
+        Toggle Person
+        </button>
       { persons }
         </div>
-      // </StyleRoot>
+      </StyleRoot>
     );
   }
 }
 
-// export default Radium(App);
-export default App;
+export default Radium(App);
+// export default App;
